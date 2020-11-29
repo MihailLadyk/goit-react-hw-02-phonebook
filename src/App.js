@@ -55,7 +55,7 @@ export default class App extends Component {
     return (
       <div>
         <ContactsCreator addContact={this.addContact} />
-        <Filter Filter={this.handleFilter} />
+        <Filter Filter={this.handleFilter} value={this.state.filter}/>
         <h2>Contacts</h2>
         <Contacts
           contact={filteredContacts}

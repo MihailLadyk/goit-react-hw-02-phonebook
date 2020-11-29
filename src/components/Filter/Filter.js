@@ -6,7 +6,7 @@ export default class Filter extends Component {
     return (
       <div>
         <h2>Filter</h2>
-        <input type="input" onChange={this.props.Filter} />
+        <input type="input" onChange={this.props.Filter} value={this.props.value} />
       </div>
     );
   }
