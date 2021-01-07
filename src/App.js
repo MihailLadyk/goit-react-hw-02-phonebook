@@ -11,6 +11,33 @@ export default class App extends Component {
     filter: "",
   };
 
+
+
+
+
+
+  componentDidUpdate(prevState) {
+    const contacts = this.state.contacts;
+
+    if (prevState.contacts !== contacts) {
+      localStorage.setItem('contacts', JSON.stringify(contacts));
+    }
+  }
+
+  componentDidMount() {
+    const contacts = localStorage.getItem('contacts');
+
+    if (contacts) {
+      this.setState({
+        contacts: JSON.parse(contacts),
+      });
+    }
+  }
+
+
+
+
+
   addContact = (text, number) => {
     if (this.state.contacts.some((e) => e.text === text) === true) {
       alert(`${text} is already in contacts`);
@@ -28,6 +55,7 @@ export default class App extends Component {
     });
   };
 
+  
   handleFilter = (e) => {
     this.setState({
       filter: e.target.value,
